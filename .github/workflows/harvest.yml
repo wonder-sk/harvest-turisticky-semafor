@@ -16,3 +16,6 @@ jobs:
 
     - name: Commit changes
       uses: EndBug/add-and-commit@v7
+      with:
+        author_name: Turista
+        author_email: turista@turista.com
