@@ -1,6 +1,9 @@
 
 name: Download data
-on: workflow_dispatch
+on:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '30 6,8,10,12,14,16,18 * * *'
 
 jobs:
   harvest:
