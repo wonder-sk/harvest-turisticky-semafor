@@ -1,5 +1,5 @@
 
-name: Go
+name: Download data
 on: workflow_dispatch
 
 jobs:
@@ -11,7 +11,8 @@ jobs:
 
     - name: Download info
       run: |
-        wget -O data.geojson "https://www.turistickysemafor.sk/wms?service=WMS&version=1.1.1&request=GetFeatureInfo&exceptions=application%2Fjson&id=touristics_localities__5&layers=touristics_localities&query_layers=touristics_localities&x=1&y=1&height=3&width=3&srs=EPSG:3857&bbox=1875771,6063684,2514287,6380943&feature_count=1000&info_format=application%2Fjson&ENV=mapstore_language:en"
+        timestamp=$(date +"%Y-%m-%d_%T")
+        wget -O data/${timestamp}.geojson "https://www.turistickysemafor.sk/wms?service=WMS&version=1.1.1&request=GetFeatureInfo&exceptions=application%2Fjson&id=touristics_localities__5&layers=touristics_localities&query_layers=touristics_localities&x=1&y=1&height=3&width=3&srs=EPSG:3857&bbox=1875771,6063684,2514287,6380943&feature_count=1000&info_format=application%2Fjson&ENV=mapstore_language:en"
 
     - name: Commit changes
       uses: EndBug/add-and-commit@v7
